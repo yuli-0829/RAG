@@ -1,0 +1,56 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- 虚拟环境 ----------
+.venv/
+venv/
+env/
+ENV/
+
+# ---------- 日志与调试产物 ----------
+logs/
+*.log
+_api.log
+_api.err.log
+
+# 调试临时文件（下划线前缀）
+_*.log
+_*.html
+_tmp/
+_mineru_out/
+
+# ---------- 本地配置（含 API Key / 数据库密码）----------
+# 仓库提供 config.ini.example 作为模板
+config.ini
+
+# ---------- 模型权重 ----------
+# 权重体积远超 GitHub 单文件 100MB 的硬限制，故整目录忽略，需另行获取：
+#   1) 下载基座模型到 models/bge-m3、models/bge-reranker-v2-m3、
+#      models/bert-base-chinese、models/nlp_bert_document-segmentation_chinese-base
+#   2) 执行 `python train_bert.py` 生成 models/new_bert（约 390MB）
+models/
+
+# MinerU / HuggingFace 缓存
+.cache/
+.mineru/
+*.safetensors.tmp
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ---------- 操作系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini

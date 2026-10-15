@@ -1,0 +1,75 @@
+# 复制本文件为 config.ini 后填入真实凭据
+#     copy config.ini.example config.ini      (Windows)
+# config.ini 已被 .gitignore 忽略，不会提交到仓库
+
+# MySQL 配置
+[mysql]
+host = localhost
+port = 3306
+user = root
+password = your_mysql_password
+database = e-commerce
+charset = utf8mb4
+
+# Redis 配置
+[redis]
+host = localhost
+port = 6379
+password = your_redis_password
+db = 0
+
+# Milvus 配置（库名/集合名只允许数字、字母、下划线）
+[milvus]
+host = localhost
+port = 19530
+database_name = ecommerce
+collection_name = ecommerce_10_15
+metric_type = COSINE
+index_type = HNSW
+dim = 1024
+
+# LLM 配置（阿里云百炼 DashScope，OpenAI 兼容接口）
+[llm]
+model = qwen-plus
+temperature = 0.1
+dashscope_api_key = sk-your-dashscope-api-key
+dashscope_base_url = https://dashscope.aliyuncs.com/compatible-mode/v1
+
+# 模型配置
+[model]
+bge_m3_path = models/bge-m3
+reranker_path = models/bge-reranker-v2-m3
+classifier_path = models/new_bert
+classifier_labels = 通用知识,专业知识
+device = cpu
+batch_size = 8
+use_mineru = true
+mineru_tier = flash
+
+# 检索参数配置
+[retrieval]
+parent_chunk_size = 1200
+child_chunk_size = 300
+chunk_overlap = 50
+retrieval_k = 5
+candidate_m = 5
+score_threshold = 0.4
+default_strategy = direct
+
+# 数据入库配置
+[ingest]
+data_dir = knowledge_data
+
+# 接口配置
+[api]
+host = 0.0.0.0
+port = 8000
+
+# 日志配置
+[logging]
+path = logs/app.log
+
+# 应用配置
+[app]
+valid_sources = ["ai", "java", "test", "ops", "bigdata"]
+customer_service_phone = 12345678

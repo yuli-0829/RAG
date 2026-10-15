@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电商售后知识库</title>
+<link rel="shortcut icon" href="data:,">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">RAG</div>
+      <div class="brand-text">
+        <h1>电商售后知识库</h1>
+        <p>Milvus · BGE-M3 · Qwen</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span>文档库</span>
+        <span id="doc-count" class="tag">—</span>
+      </div>
+      <ul id="doc-list" class="doc-list">
+        <li class="empty">加载中…</li>
+      </ul>
+      <button id="btn-init" class="btn btn-block">重新加载数据集</button>
+      <p id="init-hint" class="hint"></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head"><span>检索策略</span></div>
+      <select id="strategy" class="select">
+        <option value="direct">直接检索</option>
+        <option value="hyde">假设问题检索</option>
+        <option value="subquery">子问题查询</option>
+        <option value="step_back">回溯问题检索</option>
+      </select>
+    </div>
+
+    <a class="api-link" href="/docs" target="_blank" rel="noopener">接口文档 /docs →</a>
+  </aside>
+
+  <main class="main">
+    <div id="messages" class="messages">
+      <div class="welcome">
+        <div class="welcome-mark">RAG</div>
+        <h2>电商售后知识库问答</h2>
+        <p>回答严格基于知识库检索结果，不会编造内容。</p>
+        <div class="chips">
+          <button class="chip" data-q="七天无理由退货的运费谁承担？">七天无理由退货的运费谁承担？</button>
+          <button class="chip" data-q="退货时赠品需要一起寄回吗？">退货时赠品需要一起寄回吗？</button>
+          <button class="chip" data-q="商品拆封后还能退货吗？">商品拆封后还能退货吗？</button>
+          <button class="chip" data-q="天空为什么是蓝色的？">天空为什么是蓝色的？（通用知识）</button>
+        </div>
+      </div>
+    </div>
+
+    <form id="composer" class="composer">
+      <textarea id="input" rows="1" placeholder="输入你的问题，Enter 发送，Shift + Enter 换行"></textarea>
+      <button type="submit" id="send" class="btn btn-primary">发送</button>
+    </form>
+  </main>
+
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
